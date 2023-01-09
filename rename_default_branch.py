@@ -186,10 +186,19 @@ def main():
     parser.add_argument("--base-url", default="https://gitlab.com")
     parser.add_argument("--from", dest="from_", default="master")
     parser.add_argument("--to", default="main")
-    parser.add_argument("-p", "--project")
+    parser.add_argument("-p", "--project", help="Requires the --namespace argument.")
     parser.add_argument("-n", "--namespace")
-    parser.add_argument("-x", "--exclude-project", action="append")
-    parser.add_argument("--force", action="store_true")
+    parser.add_argument(
+        "-x",
+        "--exclude-project",
+        action="append",
+        help="Unlike --project this must be the full path with namespace.",
+    )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="If the target branch already exists then delete it first.",
+    )
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 

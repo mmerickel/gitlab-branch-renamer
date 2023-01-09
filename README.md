@@ -10,6 +10,8 @@ This will find all projects accessible by the API token, filterable by namespace
 - Delete the `master` branch.
 - Create a new branch protection rule for `master` preventing any future pushes.
 
+ **NOTE:** For a premium subscriber it'd be required to implement a few more parts of the protection API. This will not copy user/group protections.
+
 ## Setup
 
 ### Installation
