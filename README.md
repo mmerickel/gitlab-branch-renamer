@@ -1,5 +1,15 @@
 # rename_default_branch
 
+This will find all projects accessible by the API token, filterable by namespace and project. It will skip any repository that already had a `main` branch.
+
+- Create a new branch `main` copied from `master`.
+- Copy branch protection rules from `master` to `main`.
+- Re-target any pull requests from `master` to `main`.
+- Update any scheduled pipelines referencing `master`.
+- Update any webhooks referencing `master`.
+- Delete the `master` branch.
+- Create a new branch protection rule for `master` preventing any future pushes.
+
 ## Setup
 
 ### Installation
@@ -10,7 +20,7 @@ $ pipenv install
 
 ### Authentication
 
-Create a gitlab personal access token and export it into the env:
+Create a gitlab personal access token with `api` scope and export it into the env:
 
 ```
 $ export GITLAB_TOKEN=...
